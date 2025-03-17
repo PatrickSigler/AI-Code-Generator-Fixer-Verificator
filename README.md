@@ -15,7 +15,7 @@ A Flask web application that automatically debugs Python code using OpenAI GPT. 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/PyCodeFixer.git
+   git clone https://github.com/PatrickSigler/AI-Code-Generator-Fixer-Verificator
    cd PyCodeFixer
    ```
 
