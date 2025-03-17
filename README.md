@@ -4,7 +4,7 @@ A Flask web application that automatically debugs Python code using OpenAI GPT. 
 
 ![codedebuggerpic](https://github.com/user-attachments/assets/1cf4ad92-0474-407f-84e7-d4607c5f3a7d)
 
-## Features![Uploading codedebuggerpic.png…]()
+## Features!
 
 
 - 🔍 Automatic code debugging using OpenAI's GPT models
