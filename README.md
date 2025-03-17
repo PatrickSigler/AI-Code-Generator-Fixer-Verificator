@@ -1,91 +1,90 @@
-# AI-Code-Generator-Fixer-Verificator
+# PyCodeFixer
+
 A Flask web application that automatically debugs Python code using OpenAI GPT. Submit your code and desired output through a clean interface or API, and let AI fix it for you.
 
-Features:
+![PyCodeFixer Screenshot](https://via.placeholder.com/800x400?text=PyCodeFixer+Screenshot)
 
-🔍 Automatic code debugging using OpenAI's GPT models
+## Features
 
-🔄 Iterative improvement until code produces expected output
+- 🔍 Automatic code debugging using OpenAI's GPT models
+- 🔄 Iterative improvement until code produces expected output
+- 💻 Clean web interface for code submission
+- 🔌 API endpoint for integration with other tools
+- ⏱️ Rate limiting to prevent API abuse
+- 🛡️ Secure handling of API keys via environment variables
 
-💻 Clean web interface for code submission
+## Installation
 
-🔌 API endpoint for integration with other tools
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/PyCodeFixer.git
+   cd PyCodeFixer
+   ```
 
-⏱️ Rate limiting to prevent API abuse
+2. Install dependencies:
+   ```bash
+   pip install flask openai python-dotenv
+   ```
 
-🛡️ Secure handling of API keys via environment variables
+3. Create a `.env` file in the project root and add your OpenAI API key:
+   ```
+   OPENAI_API_KEY=your-api-key-here
+   ```
 
+## Usage
 
-Installation:
+1. Start the application:
+   ```bash
+   python app.py
+   ```
 
-Clone the repository:
+2. Open your browser and go to `http://localhost:5000`
 
-bashCopygit clone https://github.com/yourusername/PyCodeFixer.git
+3. Enter your Python code and desired output (if any)
 
-cd PyCodeFixer
+4. Click "Debug Code" and wait for the AI to fix your code
 
-
-Install dependencies:
-
-bashCopypip install flask openai python-dotenv
-
-
-Create a .env file in the project root and add your OpenAI API key:
-
-CopyOPENAI_API_KEY=your-api-key-here
-
-
-Usage:
-
-Start the application:
-
-bashCopypython app.py
-
-Open your browser and go to http://localhost:5000
-
-Enter your Python code and desired output (if any)
-
-Click "Debug Code" and wait for the AI to fix your code
-
-
-API Usage:
+## API Usage
 
 You can also use the API endpoint directly:
 
-bashCopycurl -X POST http://localhost:5000/submit \
-
+```bash
+curl -X POST http://localhost:5000/submit \
   -H "Content-Type: application/json" \
-  
   -d '{"code": "print(\"Hello, wrld!\")", "desiredOutput": "Hello, world!"}'
-  
-Configuration:
+```
 
-The following environment variables can be set in the .env file:
+## Configuration
 
+The following environment variables can be set in the `.env` file:
 
-OPENAI_API_KEY: Your OpenAI API key (required)
+- `OPENAI_API_KEY`: Your OpenAI API key (required)
+- `PORT`: Port to run the server on (default: 5000)
+- `FLASK_DEBUG`: Set to "true" for debug mode (default: "false")
 
-PORT: Port to run the server on (default: 5000)
+## How It Works
 
-FLASK_DEBUG: Set to "true" for debug mode (default: "false")
+1. User submits code and optional desired output
+2. Code is executed in a sandboxed environment
+3. If there are errors or the output doesn't match expectations:
+   - AI analyzes the code and suggests fixes
+   - Fixed code is executed and checked again
+   - Process repeats up to 3 times or until code works correctly
+4. Final code and output are returned to the user
 
+## License
 
-How It Works:
+MIT License
 
+## Contributing
 
-User submits code and optional desired output
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-Code is executed in a sandboxed environment
+## Acknowledgements
 
-If there are errors or the output doesn't match expectations:
-
-
-AI analyzes the code and suggests fixes
-
-Fixed code is executed and checked again
-
-Process repeats up to 3 times or until code works correctly
-
-
-
-Final code and output are returned to the user
+- OpenAI for their powerful GPT models
+- Flask for the web framework
